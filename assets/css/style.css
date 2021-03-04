@@ -2611,6 +2611,9 @@ a:visited {
 * 16. service styles
 */
 .service-one {
+  padding-top: 100px;
+}
+.service-one {
   padding-bottom: 90px;
 }
 .service-one .container {
