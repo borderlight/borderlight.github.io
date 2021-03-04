@@ -2145,7 +2145,6 @@ a:visited {
 .fact-one [class*=col-]:nth-child(4) .fact-one__single:before {
   background-image: linear-gradient(40deg, #ff703e 0%, #ffec4e 100%);
 }
-
 /*
 * 13. testimonials styles
 */
