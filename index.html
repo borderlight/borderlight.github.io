@@ -246,76 +246,176 @@
                     <h2 class="block-title__title">Checkout Our App <br> <span>Interface</span> Screenshots.</h2><!-- /.block-title__title -->
                 </div><!-- /.block-title -->
 
-                   <!DOCTYPE html>
+                <!DOCTYPE html>
 <html>
   <head>
     <title>Slideshow Images</title>
     <style>
-      .slider {
-        width: 500px;
-        height: 300px;
-        background-color: yellow;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0px;
+      * {
+        box-sizing: border-box
+      }
+      body {
+        font-family: Verdana, sans-serif;
+        margin: 0
+      }
+      .mySlides {
+        display: none
+      }
+      img {
+        vertical-align: middle;
+      }
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Caption text */
+      .text {
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
         text-align: center;
-        overflow: hidden;
       }
-      .image-container {
-        width: 1500px;
-        background-color: pink;
-        height: 300px;
-        clear: both;
-        position: relative;
-        -webkit-transition: left 2s;
-        -moz-transition: left 2s;
-        -o-transition: left 2s;
-        transition: left 2s;
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #ffffff;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
       }
-      .slide {
-        float: left;
-        margin: 0px;
-        padding: 0px;
-        position: relative;
-      }
-      #slide-1:target ~ .image-container {
-        left: 0px;
-      }
-      #slide-2:target ~ .image-container {
-        left: -500px;
-      }
-      #slide-3:target ~ .image-container {
-        left: -1000px;
-      }
-      .buttons {
-        position: relative;
-        top: -20px;
-      }
-      .buttons a {
-        display: inline-block;
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
         height: 15px;
         width: 15px;
-        border-radius: 50px;
-        background-color: lightgreen;
+        margin: 0 2px;
+        background-color: #999999;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .dot:hover {
+        background-color: #111111;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .text {
+          font-size: 11px
+        }
       }
     </style>
   </head>
   <body>
-    <div class="slider">
-      <span id="slide-1"></span>
-      <span id="slide-2"></span>
-      <span id="slide-3"></span>
-      <div class="image-container">
-        <img src="/assets/images/img_snow_wide.jpg" class="slide" width="500" height="300" />
-        <img src="/assets/images/img_snow_wide.jpg" class="slide" width="500" height="300" />
-        <img src="/assets/images/img_snow_wide.jpg" class="slide" width="500" height="300" />
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="/assets/images/img_snow_wide.jpg" style="width:100%">
+        <div class="text">London, Ebgland</div>
       </div>
-      <div class="buttons">
-        <a href="#slide-1"></a>
-        <a href="#slide-2"></a>
-        <a href="#slide-3"></a>
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="/assets/images/img_snow_wide.jpg" style="width:100%">
+        <div class="text">Sunset in Romania</div>
       </div>
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="/assets/images/img_snow_wide.jpg" style="width:100%">
+        <div class="text">New York, USA</div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if(n > slides.length) {
+          slideIndex = 1
+        }
+        if(n < 1) {
+          slideIndex = slides.length
+        }
+        for(i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for(i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
   </body>
 </html>
             </div><!-- /.container-fluid -->
