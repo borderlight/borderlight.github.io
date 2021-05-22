@@ -245,7 +245,7 @@
                 <div class="block-title text-center">
                     <h2 class="block-title__title">Checkout Our App <br> <span>Interface</span> Screenshots.</h2><!-- /.block-title__title -->
                 </div><!-- /.block-title -->
-              <!DOCTYPE html>
+             
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -326,6 +326,22 @@ img {vertical-align: middle;}
 }
 
 /* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
