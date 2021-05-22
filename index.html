@@ -245,13 +245,12 @@
                 <div class="block-title text-center">
                     <h2 class="block-title__title">Checkout Our App <br> <span>Interface</span> Screenshots.</h2><!-- /.block-title__title -->
                 </div><!-- /.block-title -->
-             
-<!DOCTYPE html>
+
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  font-family: Arial;
+  font-family: Verdana, sans-serif;
   margin: 0;
 }
 
@@ -259,21 +258,66 @@ body {
   box-sizing: border-box;
 }
 
-img {
-  vertical-align: middle;
+.row > .column {
+  padding: 0 8px;
 }
 
-/* Position the image container (needed to position the left and right arrows) */
-.container {
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
   position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
 }
 
-/* Hide the images by default */
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .mySlides {
   display: none;
 }
 
-/* Add a pointer when hovering over the thumbnail images */
 .cursor {
   cursor: pointer;
 }
@@ -283,13 +327,14 @@ img {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -50px;
   color: white;
   font-weight: bold;
   font-size: 20px;
+  transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
@@ -316,27 +361,17 @@ img {
   top: 0;
 }
 
-/* Container for image text */
+img {
+  margin-bottom: -4px;
+}
+
 .caption-container {
   text-align: center;
-  background-color: #222;
+  background-color: black;
   padding: 2px 16px;
   color: white;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
 }
@@ -345,72 +380,90 @@ img {
 .demo:hover {
   opacity: 1;
 }
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 </style>
 <body>
 
-<h2 style="text-align:center">Slideshow Gallery</h2>
+<h2 style="text-align:center">Lightbox</h2>
 
-<div class="container">
-  <div class="mySlides">
-    <div class="numbertext">1 / 6</div>
-    <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
+<div class="row">
+  <div class="column">
+    <img src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
   </div>
+  <div class="column">
+    <img src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+  </div>
+</div>
 
-  <div class="mySlides">
-    <div class="numbertext">2 / 6</div>
-    <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
-  </div>
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
 
-  <div class="mySlides">
-    <div class="numbertext">3 / 6</div>
-    <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
-  </div>
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
+    </div>
     
-  <div class="mySlides">
-    <div class="numbertext">4 / 6</div>
-    <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">5 / 6</div>
-    <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
-  </div>
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="/assets/images/img_nature_wide.jpgg" style="width:100%">
+    </div>
     
-  <div class="mySlides">
-    <div class="numbertext">6 / 6</div>
-    <img src="/assets/images/img_nature_wide.jpg" style="width:100%">
-  </div>
-    
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-  <div class="caption-container">
-    <p id="caption"></p>
-  </div>
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
 
-  <div class="row">
+
     <div class="column">
-      <img class="demo cursor" src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+      <img class="demo cursor" src="img_nature_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
     </div>
     <div class="column">
-      <img class="demo cursor" src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+      <img class="demo cursor" src="img_snow_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Snow">
     </div>
     <div class="column">
-      <img class="demo cursor" src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+      <img class="demo cursor" src="img_mountains_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
     </div>
     <div class="column">
-      <img class="demo cursor" src="/assets/images/img_nature_wide.jpg" onclick="currentSlide(4)" alt="Northern Lights">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="/assets/images/img_nature_wide.jpg" onclick="currentSlide(5)" alt="Nature and sunrise">
-    </div>    
-    <div class="column">
-      <img class="demo cursor" src="/assets/images/img_nature_wide.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+      <img class="demo cursor" src="img_lights_wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
     </div>
   </div>
 </div>
 
 <script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -445,6 +498,7 @@ function showSlides(n) {
 </html>
 
 
+            </div>
             </div><!-- /.container-fluid -->
         </section><!-- /.app-shot-one -->
         
