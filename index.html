@@ -323,8 +323,8 @@ img {vertical-align: middle;}
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
-  animation-duration: 1.5s
-)
+  animation-duration: 1.5s;
+}
 
 @-webkit-keyframes fade {
   from {opacity: .4} 
@@ -344,6 +344,9 @@ img {vertical-align: middle;}
 </head>
 <body>
 
+<h2>Automatic Slideshow</h2>
+<p>Change image every 2 seconds:</p>
+
 <div class="slideshow-container">
 
 <div class="mySlides fade">
@@ -354,13 +357,13 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="/assets/images/test file/1727.jpg" style="width:100%">
+  <img src="/assets/images/test file/neon-shallows-wallpaper.jpg" style="width:100%">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="/assets/images/test file/neon-shallows-wallpaper.jpg" style="width:100%">
+  <img src="/assets/images/test file/wallpaperflare.com_wallpaper(17).jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
 
@@ -391,7 +394,7 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 6000); // Change image every 2 seconds
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 </script>
 
