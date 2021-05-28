@@ -320,24 +320,6 @@ img {vertical-align: middle;}
   background-color: #717171;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 6s;
-  animation-name: fade;
-  animation-duration: 6s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .0} 
-  to {opacity: 1}
-}
-
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
@@ -371,9 +353,9 @@ img {vertical-align: middle;}
 <br>
 
 <div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 
 <script>
